@@ -29,7 +29,7 @@ DEBUG = True
 
 #ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ebac-bookstore.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'card-bookstore-api.herokuapp.com']
 
 
 # Application definition
