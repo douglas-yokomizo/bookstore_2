@@ -21,15 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "9x^8dzp*%dqnvr#jiaqfscrw)%=4%cvo7sotw2b!mav3!^j*q9"
-
+# SECRET_KEY = "9x^8dzp*%dqnvr#jiaqfscrw)%=4%cvo7sotw2b!mav3!^j*q9"
+SECRET_KEY = "testedepalavrasecreta"
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = int(os.environ.get("DEBUG", default=0))
 DEBUG = True
 
 #ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'card-bookstore-api-71dabbe5bc5f.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '{vercel_domain}.vercel.app']
 
 
 # Application definition
