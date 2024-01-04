@@ -8,6 +8,7 @@
   ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py" }
+    { "src": "/api/(.*)", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py runserver" },
+    { "src": "/(.*)", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py" }
   ]
 }
