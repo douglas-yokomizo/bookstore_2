@@ -3,12 +3,18 @@
   "builds": [
     {
       "src": "/home/cardrocha/Documentos/eback-back/bookstore",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "poetryInstall": true,
+        "buildCommand": "poetry run python manage.py migrate && poetry run python manage.py collectstatic --noinput"
+      }
     }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py runserver 8000" },
     { "handle": "filesystem" },
-    { "src": "/api/(.*)", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py runserver" },
     { "src": "/(.*)", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py" }
   ]
 }
+
