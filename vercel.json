@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "/home/cardrocha/Documentos/eback-back/bookstore",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/home/cardrocha/Documentos/eback-back/bookstore/manage.py" }
+  ]
+}
