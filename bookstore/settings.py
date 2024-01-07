@@ -29,7 +29,8 @@ DEBUG = True
 
 #ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'bookstore-api-ydqi.onrender.com']
+
 
 
 # Application definition
