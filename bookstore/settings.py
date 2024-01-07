@@ -92,12 +92,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DATABASES = {
     "default": {
-        "ENGINE": 'django.db.backends.postgresql_psycopg2',
-        "NAME": 'bookstore_postgres',
-        "USER": 'bookstore_postgres_user',
-        "PASSWORD": '6NTNUlxSaTB9e2KeVaajk44o6IgWuaLz',
-        "HOST": 'dpg-cmdb9tocmk4c73ajvn60-a.oregon-postgres.render.com',
-        "PORT": '5432',
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
 
