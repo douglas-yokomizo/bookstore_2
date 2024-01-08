@@ -96,24 +96,21 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 import dj_database_url
+from django.conf import settings
+
+database_url = os.environ.get("DATABASE_URL")
+settings.DATABASES["default"] = dj_database_url.parse(database_url)
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    ),
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
+    }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-#         "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
-#         "USER": os.environ.get("SQL_USER", "user"),
-#         "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-#         "HOST": os.environ.get("SQL_HOST", "localhost"),
-#         "PORT": os.environ.get("SQL_PORT", "5432"),
-#     }
-# }
 
 
 # Password validation
