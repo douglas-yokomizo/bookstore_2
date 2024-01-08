@@ -98,19 +98,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import dj_database_url
 
 DATABASES = {
-    "default": {
-        dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
+    "default": dj_database_url.config(
         default='postgresql://postgres:postgres@localhost:5432/mysite',
         conn_max_age=600
     ),
-        # "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        # "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
-        # "USER": os.environ.get("SQL_USER", "user"),
-        # "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-        # "HOST": os.environ.get("SQL_HOST", "localhost"),
-        # "PORT": os.environ.get("SQL_PORT", "5432"),
-    }
 }
 
 # DATABASES = {
