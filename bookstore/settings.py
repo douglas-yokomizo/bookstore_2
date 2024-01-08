@@ -25,12 +25,17 @@ SECRET_KEY = "9x^8dzp*%dqnvr#jiaqfscrw)%=4%cvo7sotw2b!mav3!^j*q9"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = int(os.environ.get("DEBUG", default=0))
-DEBUG = True
-
+# DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 #ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
 
-ALLOWED_HOSTS = ['127.0.0.1', 'bookstore-api-ydqi.onrender.com']
+# ALLOWED_HOSTS = ['127.0.0.1', 'bookstore-api-ydqi.onrender.com']
 
+ALLOWED_HOSTS = []
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -89,6 +94,24 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+import dj_database_url
+
+DATABASES = {
+    "default": {
+        dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    ),
+        # "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        # "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        # "USER": os.environ.get("SQL_USER", "user"),
+        # "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        # "HOST": os.environ.get("SQL_HOST", "localhost"),
+        # "PORT": os.environ.get("SQL_PORT", "5432"),
+    }
+}
 
 DATABASES = {
     "default": {

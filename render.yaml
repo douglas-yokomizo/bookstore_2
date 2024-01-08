@@ -1,0 +1,20 @@
+databases:
+  - name: bookstore
+    databaseName: bookstore_postgres
+    user: bookstore_postgres_user
+
+services:
+  - type: web
+    name: bookstore
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn bookstore.wsgi:application"
+    envVars:
+      - key: postgres://bookstore_postgres_user:6NTNUlxSaTB9e2KeVaajk44o6IgWuaLz@dpg-cmdb9tocmk4c73ajvn60-a.oregon-postgres.render.com/bookstore_postgres
+        fromDatabase:
+          name: bookstore
+          property: connectionString
+      - key: 9x^8dzp*%dqnvr#jiaqfscrw)%=4%cvo7sotw2b!mav3!^j*q9
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
