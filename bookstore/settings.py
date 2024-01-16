@@ -28,7 +28,7 @@ DEBUG = True
 #ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
 
 # ALLOWED_HOSTS = ['bookstore-api.fly.dev']
-ALLOWED_HOSTS = [
+CSRF_TRUSTED_ORIGINS = [
     'localhost', '127.0.0.1', 'bookstore-api.fly.dev' 
 ]
 
