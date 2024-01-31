@@ -2,7 +2,7 @@
 name = "bookstore"
 version = "0.1.0"
 description = "Bookstore API"
-authors = ["cardrocha <cardrocharj@gmail.com>"]
+authors = ["douglas-yokomizo <yogi.yokomizo@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
