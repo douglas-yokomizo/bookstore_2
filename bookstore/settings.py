@@ -9,7 +9,7 @@ SECRET_KEY = "9x^8dzp*%dqnvr#jiaqfscrw)%=4%cvo7sotw2b!mav3!^j*q9"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "bookstore-api.fly.dev"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "yokoz.pythonanywhere.com"]
 
 # Application definition
 
