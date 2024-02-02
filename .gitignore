@@ -163,3 +163,7 @@ cython_debug/
 
 # Local Netlify folder
 .netlify
+
+__pycache__
+*.pyc
+db.sqlite3
